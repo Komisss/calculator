@@ -1,0 +1,130 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap");
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+* {
+  font-family: "Roboto", sans-serif;
+}
+
+.main {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.main .container {
+  width: 500px;
+  height: 500px;
+  border: 1px solid black;
+  display: grid;
+  gap: 5px;
+  grid-template-areas: "a a a a" "b c d e" "f g h i" "j k l m" "n n o p" "q q q q";
+}
+.main .container .box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid grey;
+}
+.main .container .box-1 {
+  grid-area: a;
+}
+.main .container .box-2 {
+  grid-area: b;
+}
+.main .container .box-3 {
+  grid-area: c;
+}
+.main .container .box-4 {
+  grid-area: d;
+}
+.main .container .box-5 {
+  grid-area: e;
+}
+.main .container .box-6 {
+  grid-area: f;
+}
+.main .container .box-7 {
+  grid-area: g;
+}
+.main .container .box-8 {
+  grid-area: h;
+}
+.main .container .box-9 {
+  grid-area: i;
+}
+.main .container .box-10 {
+  grid-area: j;
+}
+.main .container .box-11 {
+  grid-area: k;
+}
+.main .container .box-12 {
+  grid-area: l;
+}
+.main .container .box-13 {
+  grid-area: m;
+}
+.main .container .box-14 {
+  grid-area: n;
+}
+.main .container .box-15 {
+  grid-area: o;
+}
+.main .container .box-16 {
+  grid-area: p;
+}
+.main .container .box-17 {
+  grid-area: q;
+}
