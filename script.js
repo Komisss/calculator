@@ -112,3 +112,86 @@ function isCorrectSymbol(symbol, expression){
     }
     return true;
 }
+
+let isLight = true; 
+
+function changeTheme(){
+    if(isLight){
+        document.querySelector(".container").style.background = "black";
+        document.body.style.background = "rgb(36, 36, 36)";
+        document.querySelector("#output").style.background = "black";
+        let buttons = document.querySelectorAll(".box");
+        for(let button of buttons){
+            button.style.color = "white";
+            button.style.background = "black";
+            button.addEventListener("mouseover", (event)=>{
+                event.target.style.background = "rgb(75, 75, 75)";
+            });
+            button.addEventListener("mouseout", (event)=>{
+                event.target.style.background = "black";
+            });
+        }
+        document.querySelector(".box-5").style.background = "orange";
+        document.querySelector(".box-9").style.background = "rgba(255, 166, 0, 0.808)";
+        document.querySelector(".box-13").style.background = "rgba(255, 166, 0, 0.568)";
+        document.querySelector(".box-16").style.background = "rgba(255, 166, 0, 0.322)";
+        document.querySelector(".box-5").addEventListener("mouseout", (event)=>{
+            event.target.style.background = "orange";
+        });
+        document.querySelector(".box-9").addEventListener("mouseout", (event)=>{
+            event.target.style.background = "rgba(255, 166, 0, 0.808)";
+        });
+        document.querySelector(".box-13").addEventListener("mouseout", (event)=>{
+            event.target.style.background = "rgba(255, 166, 0, 0.568)";
+        });
+        document.querySelector(".box-16").addEventListener("mouseout", (event)=>{
+            event.target.style.background = "rgba(255, 166, 0, 0.322)";
+        });
+        document.querySelector(".box-1").addEventListener("mouseover", (event)=>{
+            event.target.style.background = "black";
+        })
+        document.querySelector("#output").style.color = "white";
+
+        document.querySelector(".switch-button").style.background = "rgb(172, 172, 172)"
+        document.querySelector(".switch-button").style.color = "black";
+    }
+    else{
+        document.querySelector(".container").style.background = "white";
+        document.body.style.background = "white";
+        document.querySelector("#output").style.background = "white";
+        let buttons = document.querySelectorAll(".box");
+        for(let button of buttons){
+            button.style.color = "black";
+            button.style.background = "white";
+            button.addEventListener("mouseover", (event)=>{
+                event.target.style.background = "rgb(194, 194, 194)";
+            });
+            button.addEventListener("mouseout", (event)=>{
+                event.target.style.background = "white";
+            });
+        }
+        document.querySelector(".box-1").addEventListener("mouseover", (event)=>{
+            event.target.style.background = "white";
+        });
+        document.querySelector(".box-5").style.background = "orange";
+        document.querySelector(".box-9").style.background = "rgba(255, 166, 0, 0.808)";
+        document.querySelector(".box-13").style.background = "rgba(255, 166, 0, 0.568)";
+        document.querySelector(".box-16").style.background = "rgba(255, 166, 0, 0.322)";
+        document.querySelector(".box-5").addEventListener("mouseout", (event)=>{
+            event.target.style.background = "orange";
+        });
+        document.querySelector(".box-9").addEventListener("mouseout", (event)=>{
+            event.target.style.background = "rgba(255, 166, 0, 0.808)";
+        });
+        document.querySelector(".box-13").addEventListener("mouseout", (event)=>{
+            event.target.style.background = "rgba(255, 166, 0, 0.568)";
+        });
+        document.querySelector(".box-16").addEventListener("mouseout", (event)=>{
+            event.target.style.background = "rgba(255, 166, 0, 0.322)";
+        });
+        document.querySelector("#output").style.color = "black";
+        document.querySelector(".switch-button").style.background = "black";
+        document.querySelector(".switch-button").style.color = "white";
+    }
+    isLight = !isLight;
+}

@@ -172,6 +172,37 @@ table {
   outline: none;
 }
 
+.switch-button {
+  border: 1px solid black;
+  border-radius: 6px;
+  background-color: black;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 25px;
+  width: 50px;
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  /**
+  * Для эксплорера
+  */
+  -ms-user-select: none;
+  /**
+  * Для мозилы
+  */
+  -moz-user-select: none;
+  /**
+  * Для конкверора
+  */
+  -khtml-user-select: none;
+  /**
+  * Для Сафари и Хрома
+  */
+  -webkit-user-select: none;
+}
+
 @media (max-width: 500px) {
   .main .container {
     height: 350px;
