@@ -1,5 +1,7 @@
+let expression = "";
+
 function parser(){
-    let expression = document.querySelector('#output').innerHTML;
+    //let expression = document.querySelector('#output').innerHTML;
     let lastExprSymbol = expression[expression.length - 1];
     if(lastExprSymbol == '+' || lastExprSymbol == '-' || lastExprSymbol == '*' || lastExprSymbol == '/'){
         expression = expression.slice(0, -1);
@@ -9,31 +11,62 @@ function parser(){
     let lastIndex = 0;
     for(let i = 0; i < expression.length; i++){
         if(expression[i] == '+' || expression[i] == '-' || expression[i] == '*' || expression[i] == '/'){
-            operands.push(expression.slice(lastIndex, i))
+            operands.push(Number(expression.slice(lastIndex, i)))
             operators.push(expression[i]);
             lastIndex = i + 1;
         }
     }
-    operands.push(expression.slice(lastIndex));
-    console.log(expression);
-    console.log(operands);
-    console.log(operators);
+    operands.push(Number(expression.slice(lastIndex)));
     //1-й проход: ищу операторы / и * и выполняю их для своих операндов. Затем эти операнды удаляю, а на их место ставлю получившееся значение. Оператор тоже удаляю.
-    for(let i = 0; i < operators.length; i++){
+    for(let i = 0; i < operators.length;){
         if(operators[i] == '*'){
-            //доделать
+            let firstValue = operands.splice(i, 1);
+            let secondValue = operands.splice(i, 1);
+            operands.splice(i, 0, Number(firstValue) * Number(secondValue));
+            operators.splice(i, 1);
+        }
+        else if(operators[i] == '/'){
+            let firstValue = operands.splice(i, 1);
+            let secondValue = operands.splice(i, 1);
+            operands.splice(i, 0, Number(firstValue) / Number(secondValue));
+            operators.splice(i, 1);
+        }
+        else{
+            i++;
         }
     }
+    //2-й проход: ищу операторы + и - и выполняю их для своих операндов. Затем эти операнды удаляю, а на их место ставлю получившееся значение. Оператор тоже удаляю.
+    for(let i = 0; i < operators.length;){
+        if(operators[i] == '+'){
+            let firstValue = operands.splice(i, 1);
+            let secondValue = operands.splice(i, 1);
+            operands.splice(i, 0, Number(firstValue) + Number(secondValue));
+            operators.splice(i, 1);
+        }
+        else if(operators[i] == '-'){
+            let firstValue = operands.splice(i, 1);
+            let secondValue = operands.splice(i, 1);
+            operands.splice(i, 0, Number(firstValue) - Number(secondValue));
+            operators.splice(i, 1);
+        }
+        else{
+            i++;
+        }
+    }
+    console.log(operands);
+    console.log(operators);
+    document.querySelector('#output').value = operands[0];
+    expression = "";
 }
 
-String.prototype.replaceAt = function(index, replacement){
+String.prototype.replaceAt = function(index, replacement){ 
     let first = this.slice(0, index) + replacement;
     let second = this.slice(index + replacement.length);
     return this.slice(0, index) + replacement + this.slice(index + replacement.length);
 }
 
 function addSymbol(symbol){
-    let expression = document.querySelector('#output').innerHTML;
+    //let expression = document.querySelector('#output').innerHTML;
     if(symbol == 'C'){
         if(expression != ""){
             expression = expression.slice(0, -1);
@@ -51,7 +84,7 @@ function addSymbol(symbol){
     else{
         expression = expression.replaceAt(expression.length-1, symbol);
     }
-    document.querySelector('#output').innerHTML = expression;
+    document.querySelector('#output').value = expression;
 }
 
 function isCorrectSymbol(symbol, expression){

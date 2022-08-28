@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap");
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -52,10 +53,6 @@ table {
   border-spacing: 0;
 }
 
-* {
-  font-family: "Roboto", sans-serif;
-}
-
 .main {
   width: 100%;
   height: 100vh;
@@ -64,21 +61,48 @@ table {
   align-items: center;
 }
 .main .container {
-  width: 500px;
+  width: 400px;
   height: 500px;
   border: 1px solid black;
+  border-radius: 10px;
+  padding: 20px;
   display: grid;
   gap: 5px;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
   grid-template-areas: "a a a a" "b c d e" "f g h i" "j k l m" "n n o p" "q q q q";
+  font-family: "Roboto", sans-serif;
 }
 .main .container .box {
+  /**
+  * Для эксплорера
+  */
+  -ms-user-select: none;
+  /**
+   * Для мозилы
+   */
+  -moz-user-select: none;
+  /**
+   * Для конкверора
+   */
+  -khtml-user-select: none;
+  /**
+   * Для Сафари и Хрома
+   */
+  -webkit-user-select: none;
   display: flex;
   justify-content: center;
   align-items: center;
   border: 1px solid grey;
 }
+.main .container .box:hover {
+  cursor: default;
+  background-color: rgb(194, 194, 194);
+  transition: 0.1s;
+}
 .main .container .box-1 {
   grid-area: a;
+  border-radius: 5px;
 }
 .main .container .box-2 {
   grid-area: b;
@@ -91,6 +115,7 @@ table {
 }
 .main .container .box-5 {
   grid-area: e;
+  background-color: orange;
 }
 .main .container .box-6 {
   grid-area: f;
@@ -103,6 +128,7 @@ table {
 }
 .main .container .box-9 {
   grid-area: i;
+  background-color: rgba(255, 166, 0, 0.808);
 }
 .main .container .box-10 {
   grid-area: j;
@@ -115,6 +141,7 @@ table {
 }
 .main .container .box-13 {
   grid-area: m;
+  background-color: rgba(255, 166, 0, 0.568);
 }
 .main .container .box-14 {
   grid-area: n;
@@ -124,7 +151,63 @@ table {
 }
 .main .container .box-16 {
   grid-area: p;
+  background-color: rgba(255, 166, 0, 0.322);
 }
 .main .container .box-17 {
   grid-area: q;
+  font-size: 30px;
+}
+.main .container .box-1:hover {
+  background-color: white;
+}
+.main .container #output {
+  font-family: "Roboto", sans-serif;
+  font-size: 23px;
+  width: 90%;
+  height: 90%;
+  text-align: center;
+  cursor: default;
+  border: none;
+  text-decoration: none;
+  outline: none;
+}
+
+@media (max-width: 500px) {
+  .main .container {
+    height: 350px;
+    width: 300px;
+  }
+  .main .container #output {
+    font-size: 20px;
+  }
+}
+@media (max-width: 380px) {
+  .main .container {
+    height: 350px;
+    width: 250px;
+  }
+  .main .container #output {
+    font-size: 18px;
+  }
+}
+@media (max-width: 330px) {
+  .main .container {
+    height: 300px;
+    width: 200px;
+  }
+  .main .container #output {
+    font-size: 16px;
+  }
+}
+@media (max-width: 280px) {
+  .main .container {
+    height: 200px;
+    width: 150px;
+  }
+  .main .container .box {
+    font-size: 13px;
+  }
+  .main .container #output {
+    font-size: 13px;
+  }
 }
