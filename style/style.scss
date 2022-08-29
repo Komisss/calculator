@@ -21,7 +21,7 @@
                             "b c d e"
                             "f g h i"
                             "j k l m"
-                            "n n o p"
+                            "r n o p"
                             "q q q q";
         font-family: 'Roboto', sans-serif;                            
         .box{
@@ -110,6 +110,9 @@
             &-17{
                 grid-area: q;
                 font-size: 30px;
+            }
+            &-18{
+                grid-area: r;
             }
         }
         .box-1{

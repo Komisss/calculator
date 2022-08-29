@@ -70,7 +70,7 @@ table {
   gap: 5px;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
-  grid-template-areas: "a a a a" "b c d e" "f g h i" "j k l m" "n n o p" "q q q q";
+  grid-template-areas: "a a a a" "b c d e" "f g h i" "j k l m" "r n o p" "q q q q";
   font-family: "Roboto", sans-serif;
 }
 .main .container .box {
@@ -156,6 +156,9 @@ table {
 .main .container .box-17 {
   grid-area: q;
   font-size: 30px;
+}
+.main .container .box-18 {
+  grid-area: r;
 }
 .main .container .box-1:hover {
   background-color: white;

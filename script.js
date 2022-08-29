@@ -17,6 +17,8 @@ function parser(){
         }
     }
     operands.push(Number(expression.slice(lastIndex)));
+    console.log(operands);
+    console.log(operators);
     //1-й проход: ищу операторы / и * и выполняю их для своих операндов. Затем эти операнды удаляю, а на их место ставлю получившееся значение. Оператор тоже удаляю.
     for(let i = 0; i < operators.length;){
         if(operators[i] == '*'){
@@ -72,8 +74,30 @@ function addSymbol(symbol){
             expression = expression.slice(0, -1);
         }
     }
-    else if((symbol == '+' || symbol == '-' || symbol == '*' || symbol == '/') && expression.length == 0){
+    else if((symbol == '+' || symbol == '-' || symbol == '*' || symbol == '/' || symbol == '.') && expression.length == 0){
         return;
+    }
+    else if(symbol == '.'){
+        let isPointExist = false;
+        for(let i = expression.length - 1; i >= 0; i--){
+            if(expression[i] == '+' || expression[i] == '-' || expression[i] == '*' || expression[i] == '/'){
+                break;
+            }
+            else if(expression[i] == '.'){
+                isPointExist = true;
+            }
+        }
+        if(isPointExist){
+            return;
+        }
+        else{
+            if(expression[expression.length - 1] == '+' || expression[expression.length - 1] == '-' || expression[expression.length - 1] == '*' || expression[expression.length - 1] == '/'){
+                return;
+            }
+            else{
+                expression += symbol;
+            }
+        }
     }
     else if(expression == ''){
         expression += symbol;
